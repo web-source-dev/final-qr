@@ -10,7 +10,7 @@ const UserDetails = () => {
   useEffect(() => {
     const fetchUser = async () => {
       try {
-        const response = await axios.get(`http://localhost:5000/api/users/${userId}`);
+        const response = await axios.get(`https://final-qr-b.vercel.app/api/users/${userId}`);
         console.log(response.data);
         setUser(response.data); // Set the user data
         setErrorMessage(''); // Clear error message if the user is found
