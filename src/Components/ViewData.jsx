@@ -13,7 +13,7 @@ const ViewData = () => {
   useEffect(() => {
     const fetchUsers = async () => {
       try {
-        const response = await axios.get('http://localhost:5000/api/users');
+        const response = await axios.get('https://final-qr-b.vercel.app/api/users');
         setUsers(response.data);
       } catch (error) {
         console.error('Error fetching users:', error);
@@ -25,7 +25,7 @@ const ViewData = () => {
 
   const handleCheckboxChange = async (userId, isChecked) => {
     try {
-      await axios.put(`http://localhost:5000/api/users/${userId}`, { isAllowed: isChecked });
+      await axios.put(`https://final-qr-b.vercel.app/api/users/${userId}`, { isAllowed: isChecked });
       setUsers((prevUsers) =>
         prevUsers.map((user) =>
           user._id === userId ? { ...user, isAllowed: isChecked } : user
@@ -94,7 +94,7 @@ const ViewData = () => {
               {user.isAllowed && (
                 <div className="qr-code-all">
                   <QRCodeCanvas
-                    value={`http://localhost:3000/user/${user._id}`}
+                    value={`https://final-qr-psi.vercel.app/user/${user._id}`}
                     size={70}
                   />
                 </div>
